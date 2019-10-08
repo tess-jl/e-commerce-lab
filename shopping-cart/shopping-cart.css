@@ -1,8 +1,14 @@
 table {
-    width: 500px;
+    width: 600px;
 }
 
 td, th {
     text-align: center;
-    border: solid 1px darkslategray;
+    border: solid 1px lightslategray;
+    font-family: 'Courier New', Courier;
+    color: darkslategray; 
+}
+
+.order-total th {
+    border: transparent 1px; 
 }

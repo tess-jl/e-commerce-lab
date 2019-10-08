@@ -3,6 +3,10 @@
     box-sizing: border-box;
 }
 
+nav {
+    background: transparent; 
+}
+
 a {
     margin: 10px;
     text-decoration-line: none;

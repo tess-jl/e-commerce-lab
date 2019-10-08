@@ -11,7 +11,7 @@ order.forEach(clothingOrder => {
         let clothingTotal; 
 
         if (clothing.id === clothingOrder.id) {
-            const row = renderTableRow(clothing, clothingOrder)
+            const row = renderTableRow(clothing, clothingOrder);
 
             tableElement.appendChild(row);
 

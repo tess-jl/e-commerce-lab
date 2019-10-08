@@ -4,13 +4,13 @@ export const makePrettyCurrency = (number) => {
 
 };
 
-const totalClothingPrice = (clothting, quantity) => { // should have a TDD
-    clothing.price * quantity; 
-};
+// const totalClothingPrice = (clothting, quantity) => { // should have a TDD
+//     clothing.price * quantity; 
+// };
 
-export const totalCartPrice = (clothing, order) => {
-    
-};
+// export const totalCartPrice = (clothing, order) => {
+
+// };
 
 
 
