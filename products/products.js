@@ -1,4 +1,4 @@
-import clothing from './data/data.js';
+import clothing from '../data.js';
 import renderClothes from './render-clothes.js';
 
 const list = document.getElementById('clothing');

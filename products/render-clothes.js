@@ -16,12 +16,11 @@ function renderClothes(clothing) {
     p.className = 'price';
 
     const usd = clothing.price.toLocaleString('en-US', { style: 'currency', currency: 'USD' });
-    // p.textContent = usd;
     const priceTextNode = document.createTextNode(usd);
     p.appendChild(priceTextNode);
     
     const button = document.createElement('button');
-    button.textContent = 'Add';
+    button.textContent = 'add to cart';
     button.value = clothing.id;
     p.appendChild(button);
 
