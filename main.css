@@ -1,0 +1,26 @@
+
+* {
+    box-sizing: border-box;
+}
+
+a {
+    margin: 10px;
+    text-decoration-line: none;
+}
+
+body {
+    background: floralwhite; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+a, h1, h2, h3 {
+    font-family: 'Courier New', Courier, monospace;
+    color: darkslategray; 
+}
+
+h1 {
+    font-family: 'Courier New', Courier;
+}
