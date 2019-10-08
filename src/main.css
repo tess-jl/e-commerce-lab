@@ -1,0 +1,16 @@
+import url ('https://fonts.google.com/specimen/Raleway?selection.family=Raleway');
+
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Raleway', sans-serif;
+    background: floralwhite; 
+}
+
+h1 {
+    font-family: 'Courier New', Courier, monospace;
+    color: darkslategray; 
+}
