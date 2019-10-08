@@ -1,3 +1,6 @@
+import { makePrettyCurrency } from '../common/utils.js';
+
+
 const makeTd = (content) => { // content is a string
     const column = document.createElement('td');
     column.textContent = content;
@@ -6,13 +9,18 @@ const makeTd = (content) => { // content is a string
 };
 
 
-export default () => {
+export default (clothing, order) => {
     const tableRow = document.createElement('tr');
 
-    const columnOne = makeTd('Trucker Jacket');
-    const columnTwo = makeTd('2');
-    const columnThree = makeTd('$300.00');
-    const columnFour = makeTd('$600.00');
+    const totalPrice = order.quantity * clothing.price; 
+
+    const prettyPrice = makePrettyCurrency(clothing.price);
+    const prettyTotal = makePrettyCurrency(totalPrice);
+
+    const columnOne = makeTd(clothing.name);
+    const columnTwo = makeTd(order.quantity);
+    const columnThree = makeTd(prettyPrice);
+    const columnFour = makeTd(prettyTotal);
 
     // [
     //     makeTd('Trucker Jacket'). 

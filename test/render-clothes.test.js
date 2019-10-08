@@ -32,7 +32,7 @@ test('renders a table row', assert => {
         image: '../assets/trucker-jacket.jpg',
         description: 'a casual jacket',
         category: 'jacket',
-        price: 300.00
+        price: 300
     };
     const order = {
         id: 'trucker-jacket',

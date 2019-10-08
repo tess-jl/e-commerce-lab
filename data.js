@@ -53,7 +53,7 @@ const clothing = [
 
 export default clothing;
 
-export const cart = [{
+export const order = [{
     id: 'trucker-jacket',
     quantity: 2
 }, {
