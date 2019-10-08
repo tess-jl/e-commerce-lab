@@ -52,6 +52,8 @@ ul {
 
 .price button {
     transition: color 200ms ease-in-out;
+    border-radius: 20%;
+    font-family: 'Courier New', Courier;
 }
 
 .price button:hover {
