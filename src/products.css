@@ -1,0 +1,55 @@
+#clothing {
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#clothing li {
+    list-style: none;
+    position: relative;
+    background: white;
+    border: 1px solid lightslategray;
+    border-radius: 5px;
+    width: 25%;
+    height: 50;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    text-align: center;
+    transition: transform 200ms ease-in-out;
+}
+
+#clothing li img {
+    width: 70%;
+    margin-top: 10px;
+}
+
+#clothing li:hover {
+    box-shadow: 2px 2px 3px #bbb;
+    transform: translate3d(-1px, -1px, 0);
+}
+
+/* .price {
+    font-size: 0.9rem;
+    position: absolute;
+    bottom: 0;
+    left: 0; 
+    right: 0;
+    margin-bottom: 5px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+} */
+
+.price button {
+    transition: color 200ms ease-in-out;
+}
+
+.price button:hover {
+    background: lightslategray;
+    color: white;
+}
+
+#clothing li h3 {
+    font-size: 1.1rem;
+    margin: 5px;
+}
