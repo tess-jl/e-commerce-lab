@@ -10,7 +10,7 @@ body {
     background: floralwhite; 
 }
 
-h1 {
+a, h1, h2, h3 {
     font-family: 'Courier New', Courier, monospace;
     color: darkslategray; 
 }

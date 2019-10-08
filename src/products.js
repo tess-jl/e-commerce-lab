@@ -8,3 +8,4 @@ for (let i = 0; i < clothing.length; i++) {
     const dom = renderClothes(clothingResult);
     list.appendChild(dom);
 }
+
