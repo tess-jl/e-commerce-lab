@@ -1,3 +1,7 @@
+h1 {
+    align-items: center;
+}
+
 #clothing {
     padding: 0;
     display: flex;
@@ -27,18 +31,6 @@
     box-shadow: 2px 2px 3px #bbb;
     transform: translate3d(-1px, -1px, 0);
 }
-
-/* .price {
-    font-size: 0.9rem;
-    position: absolute;
-    bottom: 0;
-    left: 0; 
-    right: 0;
-    margin-bottom: 5px;
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-} */
 
 .price button {
     transition: color 200ms ease-in-out;

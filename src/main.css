@@ -14,3 +14,7 @@ a, h1, h2, h3 {
     font-family: 'Courier New', Courier, monospace;
     color: darkslategray; 
 }
+
+h1 {
+    font-family: 'Courier New', Courier;
+}
