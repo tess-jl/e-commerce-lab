@@ -52,3 +52,17 @@ const clothing = [
 ];
 
 export default clothing;
+
+export const cart = [{
+    id: 'trucker-jacket',
+    quantity: 2
+}, {
+    id: 'hippie-pant',
+    quantity: 5
+}, {
+    id: 'hoodie',
+    quantity: 1
+}, {
+    id: 'poncho',
+    quantity: 10
+}];

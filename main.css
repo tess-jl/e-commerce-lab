@@ -3,6 +3,11 @@
     box-sizing: border-box;
 }
 
+a {
+    margin: 10px;
+    text-decoration-line: none;
+}
+
 body {
     background: floralwhite; 
     display: flex;
