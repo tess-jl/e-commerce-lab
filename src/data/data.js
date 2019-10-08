@@ -36,7 +36,7 @@ const hoodie = {
 
 const poncho = {
     id:'poncho',
-    name: 'poncho',
+    name: 'Poncho',
     image:'../assets/poncho.jpg',
     description: 'a traditional Mexican garmet',
     category: 'poncho',

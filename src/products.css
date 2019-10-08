@@ -2,10 +2,28 @@ h1 {
     align-items: center;
 }
 
+.price {
+    font-size: 0.9rem;
+    bottom: 0;
+    left: 0; 
+    right: 0;
+    margin-bottom: 5px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    font-family: 'Courier New', Courier;
+}
+
 #clothing {
     padding: 0;
     display: flex;
     flex-wrap: wrap;
+}
+
+ul {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
 }
 
 #clothing li {

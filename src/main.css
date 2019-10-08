@@ -1,13 +1,14 @@
-import url ('https://fonts.google.com/specimen/Raleway?selection.family=Raleway');
-
 
 * {
     box-sizing: border-box;
 }
 
 body {
-    font-family: 'Raleway', sans-serif;
     background: floralwhite; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
 }
 
 a, h1, h2, h3 {
