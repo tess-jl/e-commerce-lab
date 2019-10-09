@@ -64,5 +64,5 @@ export const order = [{
     quantity: 1
 }, {
     id: 'poncho',
-    quantity: 10
+    quantity: 3
 }];

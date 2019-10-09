@@ -3,6 +3,11 @@
     box-sizing: border-box;
 }
 
+
+nav {
+    background: transparent; 
+}
+
 a {
     margin: 10px;
     text-decoration-line: none;
@@ -23,4 +28,10 @@ a, h1, h2, h3 {
 
 h1 {
     font-family: 'Courier New', Courier;
+    font-weight: 900;
+}
+
+#logo {
+    height: 150px;
+    margin: 
 }

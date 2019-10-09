@@ -1,1 +1,1 @@
-import './render-clothes.test.js';
+import './all-functions.test.js';
