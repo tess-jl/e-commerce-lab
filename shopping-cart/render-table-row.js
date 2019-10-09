@@ -1,16 +1,11 @@
 import { makePrettyCurrency, calcRowItem } from '../common/utils.js';
 
-
-
-
 const makeTd = (content) => { // content is a string
     const column = document.createElement('td');
     column.textContent = content;
 
     return column;
 };
-
-//This function takes both a cart line item, and the corresponding product, and returns dom that matches your static html example:
 
 export default (rowItem, clothing) => {
     const tableRow = document.createElement('tr');

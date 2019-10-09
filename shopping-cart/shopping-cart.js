@@ -17,6 +17,10 @@ const totalCell = document.getElementById('order-total-cell');
 totalCell.textContent = makePrettyCurrency(cartTotal);
 
 
+
+
+//VS Danny's source code from class:
+
 // let cartTotal = 0; 
 // order.forEach(clothingOrder => {
 

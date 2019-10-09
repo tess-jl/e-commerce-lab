@@ -72,6 +72,8 @@ test('renders a table row', assert => {
     assert.equal(stringOfClothingElementTr, expected);
 });
 
+
+//VS test from Danny's class demo
 // test('renders a table row', assert => {
 //     // arrange
 //     const truckerJacket = {
