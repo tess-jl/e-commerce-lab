@@ -1,4 +1,6 @@
-import { makePrettyCurrency } from '../common/utils.js';
+import { makePrettyCurrency, calcRowItem } from '../common/utils.js';
+
+
 
 
 const makeTd = (content) => { // content is a string
@@ -8,36 +10,24 @@ const makeTd = (content) => { // content is a string
     return column;
 };
 
+//This function takes both a cart line item, and the corresponding product, and returns dom that matches your static html example:
 
-export default (clothing, order) => {
+export default (rowItem, clothing) => {
     const tableRow = document.createElement('tr');
 
-    const totalPrice = order.quantity * clothing.price; 
-
     const prettyPrice = makePrettyCurrency(clothing.price);
-    const prettyTotal = makePrettyCurrency(totalPrice);
+    const totalRowPrice = calcRowItem(rowItem.quantity, clothing.price);
+    const prettyTotal = makePrettyCurrency(totalRowPrice);
 
     const columnOne = makeTd(clothing.name);
-    const columnTwo = makeTd(order.quantity);
+    const columnTwo = makeTd(rowItem.quantity);
     const columnThree = makeTd(prettyPrice);
     const columnFour = makeTd(prettyTotal);
-
-    // [
-    //     makeTd('Trucker Jacket'). 
-    //     makeTd('2'), 
-    //     makeTd('$300.00'),
-    //     makeTd('$600.00')
-    // ]
 
     tableRow.appendChild(columnOne);
     tableRow.appendChild(columnTwo);
     tableRow.appendChild(columnThree);
     tableRow.appendChild(columnFour);
-
-    // tableRow.appendChild(makeTd('Trucker Jacket'));
-    // tableRow.appendChild(makeTd('2'));
-    // tableRow.appendChild(makeTd('$300.00'));
-    // tableRow.appendChild(makeTd('$600.00'));
 
     return tableRow;
 };

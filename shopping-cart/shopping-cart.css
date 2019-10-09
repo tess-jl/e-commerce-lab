@@ -11,4 +11,17 @@ td, th {
 
 .order-total th {
     border: transparent 1px; 
+    padding: 10px;
+}
+
+#total-text {
+    text-align: right;
+}
+/* 
+#logo {
+    height: 100px;
+} */
+
+h1 {
+    height: 100px;
 }
