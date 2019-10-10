@@ -7,8 +7,8 @@ const emptyOrder = [];
 
 
 const initializeEmptyOrder = () => {
-    const serializedOrder = JSON.stringify(emptyOrder); // making an object a string to store locally 
-    localStorage.setItem(ORDER_KEY, serializedOrder);
+    const serializedOrder = JSON.stringify(emptyOrder); // making the array emptyOrder a string to store locally 
+    localStorage.setItem(ORDER_KEY, serializedOrder); // key is the order, valuw is the empty array '[]' in string form 
 };
 
 const getOrder = () => JSON.parse(localStorage.getItem(ORDER_KEY));
@@ -19,12 +19,12 @@ const incrementOrderById = (id, order) => {
 
     let itemAlreadyInOrder = false;
 
-    order.forEach(newOrder => {
+    order.forEach(existingOrder => {
         //if the ids match
-        if (order.id === newOrder.id) {
+        if (id === existingOrder.id) {
             //increment the quantity of the order item 
             itemAlreadyInOrder = true; 
-            newOrder.quantity++; 
+            existingOrder.quantity++; 
         }
     });
 
@@ -92,15 +92,18 @@ function renderClothes(clothing) {
     button.addEventListener('click', () => {
 
         // retrieve existing shopping cart from the localStorage
-        let orderLocalStorage = getOrder(); //takes string returns object const getOrder = () => JSON.parse(localStorage.getItem(ORDER_KEY));
+        let orderLocalStorage = getOrder(); //takes string returns object...const getOrder = () => JSON.parse(localStorage.getItem(ORDER_KEY));
         console.log(orderLocalStorage, 'order local storage');
 
 
         // if no order data in local storage, then set the cart data of localStorage to an empty array (initialize) that has been turned into a string
         if (!orderLocalStorage) {
-            initializeEmptyOrder(); 
-            orderLocalStorage = getOrder();
-            console.log(emptyOrder);
+            initializeEmptyOrder(); // serializes my emptyOrder array and sets it into local storage
+            //orderLocalStorage is still undefined
+   
+            orderLocalStorage = getOrder(); // orderLocalStorage was undefined and now it's an empty array
+
+
         //     pushNewOrderItem(orderLocalStorage, orderLocalStorage.id);
         }
         // } else {

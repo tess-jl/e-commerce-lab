@@ -13,13 +13,11 @@ const buildTotalCell = (order, clothing) => {
 };
 
 const addRow = (order, clothing) => {
-    for (let i = 0; i < order.length; i++) {
-        const rowItem = order[i];
-        const garment = findById(clothing, rowItem.id);
-        const dom = renderTableRow(rowItem, garment);
+    debugger;
+    const garment = findById(clothing, order.id);
+    const dom = renderTableRow(order, garment);
 
-        tbodyElement.appendChild(dom);
-    }
+    tbodyElement.appendChild(dom);
 };
 
 const addRows = (order, clothing) => {
@@ -29,6 +27,7 @@ const addRows = (order, clothing) => {
 };
 
 const buildTable = (order, clothing) => {
+    debugger;
     buildTotalCell(order, clothing);
     addRows(order, clothing);
 };
