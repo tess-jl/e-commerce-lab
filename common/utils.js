@@ -3,31 +3,29 @@ export const makePrettyCurrency = (number) => {
     return makePrettyCurrency; 
 };
 
-export const findById = (clothing, id) => {
-    for (let i = 0; i < clothing.length; i++) {
-        const clothingItem = clothing[i];
-
-        if (clothingItem.id === id) {
-            return clothingItem;
-        } 
-    }
-    return null;
-};
-
-//REFACTORED USING FOR EACH:
 // export const findById = (clothing, id) => {
+//     for (let i = 0; i < clothing.length; i++) {
+//         const clothingItem = clothing[i];
 
-//     let matchingOrder;
-//     clothing.forEach(order => {
-//         if(clothing.id === id) {
-//             matchingOrder = clothing;
-//         }
-//     });
-//   return matchingOrder;
+//         if (clothingItem.id === id) {
+//             console.log(clothingItem, 'clothing item');
+//             return clothingItem;
+//         } 
+//     }
+//     // return null;
 // };
 
+//REFACTORED USING FOR EACH:
+export const findById = (clothing, id) => {
 
-
+    let matchingOrder;
+    clothing.forEach(item => {
+        if (item.id === id) {
+            matchingOrder = clothing;
+        }
+    });
+    return matchingOrder;
+};
 
 
 export const calcRowItem = (itemQuantity, itemPrice) => {
@@ -56,13 +54,12 @@ export const calcRowItem = (itemQuantity, itemPrice) => {
 //Refactored
 export const calcOrderTotal = (order, clothing) => {
     let orderTotal = 0; 
-
     order.forEach (orderItem => {
         const garmentId = orderItem.id;
         const garmentQuantity = orderItem.quantity; 
         
         const garment = findById(clothing, garmentId);
-
+        console.log(garment, 'garment');
         let costOfItemOrder = calcRowItem(garmentQuantity, garment.price);
         orderTotal += costOfItemOrder; 
 

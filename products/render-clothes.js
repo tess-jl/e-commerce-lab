@@ -1,4 +1,5 @@
 import { findById } from '../common/utils.js';
+import clothing from '../data.js';
 
 export const ORDER_KEY = 'order'; //magic string
 const emptyOrder = [];
@@ -14,47 +15,46 @@ const getOrder = () => JSON.parse(localStorage.getItem(ORDER_KEY));
 
 
 
-// const incrementOrderById = (id, order) => {
+const incrementOrderById = (id, order) => {
 
-//     let itemAlreadyInOrder = false;
+    let itemAlreadyInOrder = false;
 
-//     order.forEach(newOrder => {
-//         //if the ids match
-//         if (order.id === newOrder.id) {
-//             //increment the quantity of the order item 
-//             itemAlreadyInOrder = true; 
-//             newOrder.quantity++; 
-//         }
-//     });
+    order.forEach(newOrder => {
+        //if the ids match
+        if (order.id === newOrder.id) {
+            //increment the quantity of the order item 
+            itemAlreadyInOrder = true; 
+            newOrder.quantity++; 
+        }
+    });
 
-//     if (itemAlreadyInOrder) {
-//         return; // break function
-//     } else {
-//         const newOrderItem = { 
-//             id: id,
-//             quantity: 1 //,
-//         };
-//         order.push(newOrderItem);
-//     }
-// };
+    if (itemAlreadyInOrder) { // means its true
+        return; // break function
+    } else {
+        const newOrderItem = { 
+            id: id,
+            quantity: 1 
+        };
+        order.push(newOrderItem);
+    }
+};
 
 
 
 //make a new function that uses the findById and if it doesn't find something it will create new order item and push into the cart
-const pushNewOrderItem = (currentOrder, clothingId) => {
-
-    //findById returns clothing item 
-    const existingClothingItem = findById(currentOrder, clothingId);
-    if (existingClothingItem === null) {
-        const newOrderItem = {
-            id: clothingId,
-            quantity: 1
-        };
-        currentOrder.push(newOrderItem);
-    } else {
-        return;
-    }
-};
+// const pushNewOrderItem = (currentOrder, clothingId) => {
+//     //findById returns clothing item 
+//     const existingClothingItem = findById(currentOrder, clothingId);
+//     if (existingClothingItem === null) {
+//         const newOrderItem = {
+//             id: clothingId,
+//             quantity: 1
+//         };
+//         currentOrder.push(newOrderItem);
+//     } else {
+//         return;
+//     }
+// };
 
 
 const setOrder = (currentOrderInLocalStorage) => {
@@ -92,17 +92,22 @@ function renderClothes(clothing) {
     button.addEventListener('click', () => {
 
         // retrieve existing shopping cart from the localStorage
-        let orderLocalStorage = getOrder(); //returns array of order so far
+        let orderLocalStorage = getOrder(); //takes string returns object const getOrder = () => JSON.parse(localStorage.getItem(ORDER_KEY));
+        console.log(orderLocalStorage, 'order local storage');
+
 
         // if no order data in local storage, then set the cart data of localStorage to an empty array (initialize) that has been turned into a string
         if (!orderLocalStorage) {
             initializeEmptyOrder(); 
-            orderLocalStorage = getOrder(); //turns data into an array
-            pushNewOrderItem(orderLocalStorage, orderLocalStorage.id);
-        } else {
-            orderLocalStorage.quantity = orderLocalStorage.quantity + 1; 
+            orderLocalStorage = getOrder();
+            console.log(emptyOrder);
+        //     pushNewOrderItem(orderLocalStorage, orderLocalStorage.id);
         }
+        // } else {
+        //     orderLocalStorage.quantity = orderLocalStorage.quantity + 1; 
+        // }
         
+        incrementOrderById(clothing.id, orderLocalStorage);
         setOrder(orderLocalStorage);
 
     });
