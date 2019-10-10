@@ -1,6 +1,6 @@
 import { findById } from '../common/utils.js';
 
-const ORDER_KEY = 'order'; //magic string
+export const ORDER_KEY = 'order'; //magic string
 const emptyOrder = [];
 
 
@@ -41,7 +41,7 @@ const getOrder = () => JSON.parse(localStorage.getItem(ORDER_KEY));
 
 
 //make a new function that uses the findById and if it doesn't find something it will create new order item and push into the cart
-const pushCorrectOrderItem = (currentOrder, clothingId) => {
+const pushNewOrderItem = (currentOrder, clothingId) => {
 
     //findById returns clothing item 
     const existingClothingItem = findById(currentOrder, clothingId);
@@ -52,13 +52,10 @@ const pushCorrectOrderItem = (currentOrder, clothingId) => {
         };
         currentOrder.push(newOrderItem);
     } else {
-        const updatedClothingItem = {
-            id: clothingId,
-            quantity: 1
-        };
-        currentOrder.push(updatedClothingItem);
+        return;
     }
 };
+
 
 const setOrder = (currentOrderInLocalStorage) => {
     const serializedNewCart = JSON.stringify(currentOrderInLocalStorage);
@@ -101,9 +98,9 @@ function renderClothes(clothing) {
         if (!orderLocalStorage) {
             initializeEmptyOrder(); 
             orderLocalStorage = getOrder(); //turns data into an array
-            pushCorrectOrderItem(orderLocalStorage, orderLocalStorage.id);
+            pushNewOrderItem(orderLocalStorage, orderLocalStorage.id);
         } else {
-            pushCorrectOrderItem(orderLocalStorage, orderLocalStorage.id);
+            orderLocalStorage.quantity = orderLocalStorage.quantity + 1; 
         }
         
         setOrder(orderLocalStorage);

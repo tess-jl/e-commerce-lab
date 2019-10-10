@@ -1,44 +1,36 @@
 import renderTableRow from './render-table-row.js';
-import clothing, { order } from '../data.js';
+import clothing from '../data.js';
 import { findById, calcOrderTotal, makePrettyCurrency } from '../common/utils.js';
+import { ORDER_KEY } from '../products/render-clothes.js';
 
 const tbodyElement = document.querySelector('tbody'); 
 
-for (let i = 0; i < order.length; i++) {
-    const rowItem = order[i];
-    const garment = findById(clothing, rowItem.id);
-    const dom = renderTableRow(rowItem, garment);
+const buildTotalCell = (ORDER_KEY, clothing) => {
+    const totalCell = document.getElementById('order-total-cell');
+    const cartTotal = calcOrderTotal(ORDER_KEY, clothing);
+    totalCell.textContent = makePrettyCurrency(cartTotal);
+};
 
-    tbodyElement.appendChild(dom);
-}
+const addRow = (clothingOrder, clothing) => {
+    for (let i = 0; i < order.length; i++) {
+        const rowItem = order[i];
+        const garment = findById(clothing, rowItem.id);
+        const dom = renderTableRow(rowItem, garment);
 
-const cartTotal = calcOrderTotal(order, clothing);
-const totalCell = document.getElementById('order-total-cell');
-totalCell.textContent = makePrettyCurrency(cartTotal);
+        tbodyElement.appendChild(dom);
+};
 
+const addRows = (ORDER_KEY, clothing) => {
+    ORDER_KEY.forEach(clothingOrder => {
+        addRow(clothingOrder, clothing);
+    });
+};
 
+const buildTable = (ORDER_KEY, clothing) => {
+    buildTotalCell(ORDER_KEY, clothing);
+    addRows(ORDER_KEY, clothing);
+};
 
+const javascriptReadableOrder = JSON.parse(localStorage.getItem(ORDER_KEY));
 
-//VS Danny's source code from class:
-
-// let cartTotal = 0; 
-// order.forEach(clothingOrder => {
-
-//     clothing.forEach(clothing => {
-//         let clothingTotal; 
-
-//         if (clothing.id === clothingOrder.id) {
-//             const row = renderTableRow(clothing, clothingOrder);
-
-//             tableElement.appendChild(row);
-
-//             clothingTotal = clothing.price * clothingOrder.quantity; 
-
-//             cartTotal += clothingTotal; 
-//         }
-//     });
-// });
-
-// const totalCell = document.getElementById('order-total-cell');
-
-// totalCell.textContent = makePrettyCurrency(cartTotal); 
+buildTable(javascriptReadableOrder, clothing);
