@@ -17,22 +17,23 @@ export const makePrettyCurrency = (number) => {
 
 //REFACTORED USING FOR EACH:
 export const findById = (clothing, id) => {
-
     let matchingOrder;
+    
     clothing.forEach(item => {
         if (item.id === id) {
             matchingOrder = clothing;
         }
     });
+
     return matchingOrder;
 };
 
 
-export const calcRowItem = (itemQuantity, itemPrice) => {
-    const rowCost = Number((itemQuantity * itemPrice).toFixed(2));
-    return rowCost; 
+// export const calcRowItem = (itemQuantity, itemPrice) => {
+//     const rowCost = Number((itemQuantity * itemPrice).toFixed(2));
+//     return rowCost; 
 
-};
+// };
 
 //KEEPING ORIGINAL LOOP HERE AS A REFERENCE:
 // export const calcOrderTotal = (order, clothing) => {
@@ -52,17 +53,16 @@ export const calcRowItem = (itemQuantity, itemPrice) => {
 // };
 
 //Refactored
-export const calcOrderTotal = (order, clothing) => {
-    let orderTotal = 0; 
-    order.forEach (orderItem => {
-        const garmentId = orderItem.id;
-        const garmentQuantity = orderItem.quantity; 
+// export const calcOrderTotal = (order, clothing) => {
+//     let orderTotal = 0; 
+//     order.forEach (orderItem => {
+//         const garmentId = orderItem.id;
+//         const garmentQuantity = orderItem.quantity; 
         
-        const garment = findById(clothing, garmentId);
-        console.log(garment, 'garment');
-        let costOfItemOrder = calcRowItem(garmentQuantity, garment.price);
-        orderTotal += costOfItemOrder; 
+//         const garment = findById(clothing, garmentId);
+//         let costOfItemOrder = calcRowItem(garmentQuantity, garment.price);
+//         orderTotal += costOfItemOrder; 
 
-    });
-    return orderTotal; 
-};
+//     });
+//     return orderTotal; 
+// };

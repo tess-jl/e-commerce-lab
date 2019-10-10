@@ -40,23 +40,6 @@ const incrementOrderById = (id, order) => {
 };
 
 
-
-//make a new function that uses the findById and if it doesn't find something it will create new order item and push into the cart
-// const pushNewOrderItem = (currentOrder, clothingId) => {
-//     //findById returns clothing item 
-//     const existingClothingItem = findById(currentOrder, clothingId);
-//     if (existingClothingItem === null) {
-//         const newOrderItem = {
-//             id: clothingId,
-//             quantity: 1
-//         };
-//         currentOrder.push(newOrderItem);
-//     } else {
-//         return;
-//     }
-// };
-
-
 const setOrder = (currentOrderInLocalStorage) => {
     const serializedNewCart = JSON.stringify(currentOrderInLocalStorage);
     localStorage.setItem(ORDER_KEY, serializedNewCart);
@@ -90,25 +73,16 @@ function renderClothes(clothing) {
     button.value = clothing.id;
 
     button.addEventListener('click', () => {
-
         // retrieve existing shopping cart from the localStorage
         let orderLocalStorage = getOrder(); //takes string returns object...const getOrder = () => JSON.parse(localStorage.getItem(ORDER_KEY));
         console.log(orderLocalStorage, 'order local storage');
-
 
         // if no order data in local storage, then set the cart data of localStorage to an empty array (initialize) that has been turned into a string
         if (!orderLocalStorage) {
             initializeEmptyOrder(); // serializes my emptyOrder array and sets it into local storage
             //orderLocalStorage is still undefined
-   
-            orderLocalStorage = getOrder(); // orderLocalStorage was undefined and now it's an empty array
-
-
-        //     pushNewOrderItem(orderLocalStorage, orderLocalStorage.id);
+            orderLocalStorage = getOrder(); // orderLocalStorage was undefined and now it's an empty array because it has synched up with the initializeEmptyOder
         }
-        // } else {
-        //     orderLocalStorage.quantity = orderLocalStorage.quantity + 1; 
-        // }
         
         incrementOrderById(clothing.id, orderLocalStorage);
         setOrder(orderLocalStorage);

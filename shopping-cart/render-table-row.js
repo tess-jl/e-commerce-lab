@@ -1,4 +1,5 @@
-import { makePrettyCurrency, calcRowItem } from '../common/utils.js';
+import { makePrettyCurrency } from '../common/utils.js';
+import { calcRowItem } from './shopping-cart.js';
 
 const makeTd = (content) => { // content is a string
     const column = document.createElement('td');

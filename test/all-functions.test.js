@@ -1,6 +1,7 @@
 import renderClothes from '../products/render-clothes.js';
 import renderTableRow from '../shopping-cart/render-table-row.js';
-import { findById, calcRowItem, calcOrderTotal } from '../common/utils.js';
+import { findById } from '../common/utils.js';
+import { calcRowItem, calcOrderTotal } from '../shopping-cart/shopping-cart.js';
 import clothing, { order } from '../data.js'; 
 
 const test = QUnit.test;
