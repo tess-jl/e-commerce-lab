@@ -5,7 +5,7 @@ const makeTd = (content) => { // content is a string
     const column = document.createElement('td');
     column.textContent = content;
 
-    return column;
+    return column; // returns an element for us 
 };
 
 export default (rowItem, clothing) => {

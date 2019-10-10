@@ -43,16 +43,16 @@ const addRow = (order, clothing) => {
 
 const addRows = (order, clothing) => {
     order.forEach(clothingOrder => {
-        addRow(clothingOrder, clothing);
+        addRow(clothingOrder, clothing); // for everything in the car we add a row 
     });
 };
 
 const buildTable = (order, clothing) => {
     buildTotalCell(order, clothing);
-    addRows(order, clothing);
+    addRows(order, clothing); // order is not hard-coded, we got order from the local storage instead
 };
 
-const javascriptReadableOrder = JSON.parse(localStorage.getItem(ORDER_KEY));
+const javascriptReadableOrder = JSON.parse(localStorage.getItem(ORDER_KEY)); // sucking the order out of the local storage and use the JSON.parse to unstringify it
 
 buildTable(javascriptReadableOrder, clothing);
 

@@ -78,7 +78,9 @@ function renderClothes(clothing) {
         console.log(orderLocalStorage, 'order local storage');
 
         // if no order data in local storage, then set the cart data of localStorage to an empty array (initialize) that has been turned into a string
-        if (!orderLocalStorage) {
+
+        if (!orderLocalStorage) { // if orderLocalStorage is null, it's not there
+
             initializeEmptyOrder(); // serializes my emptyOrder array and sets it into local storage
             //orderLocalStorage is still undefined
             orderLocalStorage = getOrder(); // orderLocalStorage was undefined and now it's an empty array because it has synched up with the initializeEmptyOder
