@@ -70,7 +70,7 @@ if (javascriptReadableCart === null) {
     placeOrderButton.disabled = true;
 } else {
     placeOrderButton.addEventListener('click', () => {
-        localStorage.removeItem(javascriptReadableCart);
+        localStorage.removeItem(ORDER_KEY);
         alert('order placed: \n' + JSON.stringify(javascriptReadableCart, true, 2));
         window.location = '../';
     });
