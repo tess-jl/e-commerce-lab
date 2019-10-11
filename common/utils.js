@@ -21,7 +21,7 @@ export const findById = (clothing, id) => {
     
     clothing.forEach(item => {
         if (item.id === id) {
-            matchingOrder = clothing;
+            matchingOrder = item;
         }
     });
 

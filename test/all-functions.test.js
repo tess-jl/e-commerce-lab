@@ -2,7 +2,7 @@ import renderClothes from '../products/render-clothes.js';
 import renderTableRow from '../shopping-cart/render-table-row.js';
 import { findById } from '../common/utils.js';
 import { calcRowItem, calcOrderTotal } from '../shopping-cart/shopping-cart.js';
-import clothing, { order } from '../data.js'; 
+import clothing from '../data.js'; 
 
 const test = QUnit.test;
 QUnit.module('Render Clothes');
@@ -73,35 +73,12 @@ test('renders a table row', assert => {
     assert.equal(stringOfClothingElementTr, expected);
 });
 
-
-//VS test from Danny's class demo
-// test('renders a table row', assert => {
-//     // arrange
-//     const truckerJacket = {
-//         id:'trucker-jacket',
-//         name: 'Trucker Jacket',
-//         image: '../assets/trucker-jacket.jpg',
-//         description: 'a casual jacket',
-//         category: 'jacket',
-//         price: 300
-//     };
-//     const order = {
-//         id: 'trucker-jacket',
-//         quantity: 2
-//     };
-
-//     const expected = '<tr><td>Trucker Jacket</td><td>2</td><td>$300.00</td><td>$600.00</td></tr>';
-    
-//     // act
-//     const clothingElementTr = renderTableRow(truckerJacket, order);
-//     const stringOfClothingElementTr = clothingElementTr.outerHTML;
-    
-//     // assert
-//     assert.equal(stringOfClothingElementTr, expected);
-// });
-
 test('calculates order total', assert => {
     // arrange
+    const order = [{
+        id: 'trucker-jacket',
+        quantity: 2
+    }];
 
     const expected = '2280';
     

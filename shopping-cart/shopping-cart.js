@@ -18,6 +18,7 @@ export const calcOrderTotal = (order, clothing) => {
         const garmentQuantity = orderItem.quantity; 
         
         const garment = findById(clothing, garmentId);
+        console.log(garment, 'garment');
         let costOfItemOrder = calcRowItem(garmentQuantity, garment.price);
         orderTotal += costOfItemOrder; 
 
@@ -31,6 +32,8 @@ const buildTotalCell = (order, clothing) => {
     const totalCell = document.getElementById('order-total-cell');
     console.log(totalCell);
     const cartTotal = calcOrderTotal(order, clothing);
+    console.log(totalCell, 'second time');
+    console.log(cartTotal);
     totalCell.textContent = makePrettyCurrency(cartTotal);
 };
 
