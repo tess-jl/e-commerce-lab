@@ -51,15 +51,14 @@ const addRows = (cartArray, inventoryArray) => {
 
 const buildTable = (cartArray, inventoryArray) => {
     buildTotalCell(cartArray, inventoryArray);
-    addRows(cartArray, inventoryArray); // order is not hard-coded, we got order from the local storage instead
+    addRows(cartArray, inventoryArray); 
 };
 
-const javascriptReadableCart = JSON.parse(localStorage.getItem(ORDER_KEY)); // sucking the order out of the local storage and use the JSON.parse to unstringify it
+const javascriptReadableCart = JSON.parse(localStorage.getItem(ORDER_KEY)); 
 
 buildTable(javascriptReadableCart, clothing);
 
 const placeOrderButton = document.getElementById('place-order-button');
-console.log(placeOrderButton);
 
 if (javascriptReadableCart.length === 0) {
     placeOrderButton.disabled = true;

@@ -1,11 +1,11 @@
 import { makePrettyCurrency } from '../common/utils.js';
 import { calcRowItem } from './shopping-cart.js';
 
-const makeTd = (content) => { // content is a string
+const makeTd = (content) => { 
     const column = document.createElement('td');
     column.textContent = content;
 
-    return column; // returns an element for us 
+    return column; 
 };
 
 export default (orderItem, inventoryObject) => {

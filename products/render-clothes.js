@@ -1,14 +1,11 @@
-import { findById } from '../common/utils.js';
-import clothing from '../data.js';
-
-export const ORDER_KEY = 'order'; //magic string
+export const ORDER_KEY = 'order'; 
 const emptyOrder = [];
 
 
 
 const initializeEmptyOrder = () => {
-    const serializedOrder = JSON.stringify(emptyOrder); // making the array emptyOrder a string to store locally 
-    localStorage.setItem(ORDER_KEY, serializedOrder); // key is the order, valuw is the empty array '[]' in string form 
+    const serializedOrder = JSON.stringify(emptyOrder); 
+    localStorage.setItem(ORDER_KEY, serializedOrder); 
 };
 
 const getOrder = () => JSON.parse(localStorage.getItem(ORDER_KEY));
@@ -20,16 +17,14 @@ const incrementOrderById = (id, order) => {
     let itemAlreadyInOrder = false;
 
     order.forEach(existingOrder => {
-        //if the ids match
         if (id === existingOrder.id) {
-            //increment the quantity of the order item 
             itemAlreadyInOrder = true; 
             existingOrder.quantity++; 
         }
     });
 
-    if (itemAlreadyInOrder) { // means its true
-        return; // break function
+    if (itemAlreadyInOrder) { 
+        return; 
     } else {
         const newOrderItem = { 
             id: id,
@@ -44,7 +39,6 @@ const setOrder = (currentOrderInLocalStorage) => {
     const serializedNewCart = JSON.stringify(currentOrderInLocalStorage);
     localStorage.setItem(ORDER_KEY, serializedNewCart);
 };
-
 
 
 function renderClothes(clothing) {
@@ -73,22 +67,14 @@ function renderClothes(clothing) {
     button.value = clothing.id;
 
     button.addEventListener('click', () => {
-        // retrieve existing shopping cart from the localStorage
-        let orderLocalStorage = getOrder(); //takes string returns object...const getOrder = () => JSON.parse(localStorage.getItem(ORDER_KEY));
-        console.log(orderLocalStorage, 'order local storage');
+        let orderLocalStorage = getOrder(); 
 
-        // if no order data in local storage, then set the cart data of localStorage to an empty array (initialize) that has been turned into a string
-
-        if (!orderLocalStorage) { // if orderLocalStorage is null, it's not there
-
-            initializeEmptyOrder(); // serializes my emptyOrder array and sets it into local storage
-            //orderLocalStorage is still undefined
-            orderLocalStorage = getOrder(); // orderLocalStorage was undefined and now it's an empty array because it has synched up with the initializeEmptyOder
+        if (!orderLocalStorage) { 
+            initializeEmptyOrder(); 
+            orderLocalStorage = getOrder(); 
         }
-        
         incrementOrderById(clothing.id, orderLocalStorage);
         setOrder(orderLocalStorage);
-
     });
     p.appendChild(button);
     li.appendChild(p);
