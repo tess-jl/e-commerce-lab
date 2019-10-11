@@ -3,7 +3,7 @@ const emptyOrder = [];
 
 
 
-const initializeEmptyOrder = () => {
+export const initializeEmptyOrder = () => {
     const serializedOrder = JSON.stringify(emptyOrder); 
     localStorage.setItem(ORDER_KEY, serializedOrder); 
 };
@@ -33,7 +33,6 @@ const incrementOrderById = (id, order) => {
         order.push(newOrderItem);
     }
 };
-
 
 const setOrder = (currentOrderInLocalStorage) => {
     const serializedNewCart = JSON.stringify(currentOrderInLocalStorage);

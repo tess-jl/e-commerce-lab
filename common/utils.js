@@ -1,4 +1,7 @@
+
+
 export const makePrettyCurrency = (number) => {
+    console.log(number, 'number passed to makepretty');
     const makePrettyCurrency = number.toLocaleString('en-US', { style: 'currency', currency: 'USD' });
     return makePrettyCurrency; 
 };
