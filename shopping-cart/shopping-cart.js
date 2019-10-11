@@ -66,12 +66,12 @@ if (javascriptReadableCart !== null) {
 }
 
 
-if (javascriptReadableCart === null) {
-    placeOrderButton.disabled = true;
-} else {
+if (javascriptReadableCart !== null) {
     placeOrderButton.addEventListener('click', () => {
         localStorage.removeItem(ORDER_KEY);
         alert('order placed: \n' + JSON.stringify(javascriptReadableCart, true, 2));
         window.location = '../';
     });
+} else {
+    placeOrderButton.disabled = true;
 }
