@@ -65,7 +65,6 @@ function renderClothes(clothing) {
     const button = document.createElement('button');
     button.textContent = 'add to cart';
     button.value = clothing.id;
-
     button.addEventListener('click', () => {
         let orderLocalStorage = getOrder(); 
 

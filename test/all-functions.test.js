@@ -62,7 +62,6 @@ test('renders a table row', assert => {
     };
 
     const item = findById(clothing, order.id);
-
     const expected = '<tr><td>Trucker Jacket</td><td>2</td><td>$300.00</td><td>$600.00</td></tr>';
     
     // act
@@ -75,15 +74,15 @@ test('renders a table row', assert => {
 
 test('calculates order total', assert => {
     // arrange
-    const order = [{
+    const orderItem = [{
         id: 'trucker-jacket',
         quantity: 2
     }];
 
-    const expected = '2280';
+    const expected = '600';
     
     // act
-    const orderTotal = calcOrderTotal(order, clothing);
+    const orderTotal = calcOrderTotal(orderItem, clothing);
     // const stringOfOrderTotal = orderTotal.outerHTML;
     
     // assert

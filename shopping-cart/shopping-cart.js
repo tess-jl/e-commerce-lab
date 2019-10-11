@@ -4,15 +4,16 @@ import { findById, makePrettyCurrency } from '../common/utils.js';
 import { ORDER_KEY } from '../products/render-clothes.js';
 
 const tbodyElement = document.querySelector('tbody'); 
+const placeOrderButton = document.getElementById('place-order-button');
 
-const json = localStorage.getItem('ORDER_KEY');
-let cartArray;
-if (json) {
-    cartArray = JSON.parse(json);
-}
-else {
-    cartArray = [];
-}
+// const json = localStorage.getItem('ORDER_KEY');
+// let cartArray;
+// if (json) {
+//     cartArray = JSON.parse(json);
+// }
+// else {
+//     cartArray = [];
+// }
 
 
 export const calcRowItem = (itemQuantity, itemPrice) => {
@@ -41,7 +42,6 @@ const buildTotalCell = (cartArray, inventoryArray) => {
 
 const addRows = (cartArray, inventoryArray) => {
     cartArray.forEach(orderItem => {
-
         const garment = findById(inventoryArray, orderItem.id);
         const dom = renderTableRow(orderItem, garment);
         tbodyElement.appendChild(dom);
@@ -58,7 +58,6 @@ const javascriptReadableCart = JSON.parse(localStorage.getItem(ORDER_KEY));
 
 buildTable(javascriptReadableCart, clothing);
 
-const placeOrderButton = document.getElementById('place-order-button');
 
 if (javascriptReadableCart.length === 0) {
     placeOrderButton.disabled = true;
