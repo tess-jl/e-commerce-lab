@@ -1,7 +1,7 @@
 import renderClothes from '../products/render-clothes.js';
 import renderTableRow from '../shopping-cart/render-table-row.js';
 import { findById, calcRowItem, calcOrderTotal } from '../common/utils.js';
-import clothing, { order } from '../data.js'; 
+import clothing from '../data.js'; 
 
 const test = QUnit.test;
 QUnit.module('Render Clothes');
@@ -42,9 +42,9 @@ test('finds a clothing item in the clothing array by id', assert => {
 test('calculate the cost of a row', assert => {
     // arrange
     const itemQuantity = 2; 
-    const itemPrice = 300.01; 
+    const itemPrice = 300; 
 
-    const expected = 600.02; 
+    const expected = 600; 
     
     // act
     const rowCost = calcRowItem(itemQuantity, itemPrice);
@@ -61,7 +61,6 @@ test('renders a table row', assert => {
     };
 
     const item = findById(clothing, order.id);
-
     const expected = '<tr><td>Trucker Jacket</td><td>2</td><td>$300.00</td><td>$600.00</td></tr>';
     
     // act
@@ -72,40 +71,17 @@ test('renders a table row', assert => {
     assert.equal(stringOfClothingElementTr, expected);
 });
 
-
-//VS test from Danny's class demo
-// test('renders a table row', assert => {
-//     // arrange
-//     const truckerJacket = {
-//         id:'trucker-jacket',
-//         name: 'Trucker Jacket',
-//         image: '../assets/trucker-jacket.jpg',
-//         description: 'a casual jacket',
-//         category: 'jacket',
-//         price: 300
-//     };
-//     const order = {
-//         id: 'trucker-jacket',
-//         quantity: 2
-//     };
-
-//     const expected = '<tr><td>Trucker Jacket</td><td>2</td><td>$300.00</td><td>$600.00</td></tr>';
-    
-//     // act
-//     const clothingElementTr = renderTableRow(truckerJacket, order);
-//     const stringOfClothingElementTr = clothingElementTr.outerHTML;
-    
-//     // assert
-//     assert.equal(stringOfClothingElementTr, expected);
-// });
-
 test('calculates order total', assert => {
     // arrange
+    const orderItem = [{
+        id: 'trucker-jacket',
+        quantity: 2
+    }];
 
-    const expected = '2280';
+    const expected = '600';
     
     // act
-    const orderTotal = calcOrderTotal(order, clothing);
+    const orderTotal = calcOrderTotal(orderItem, clothing);
     // const stringOfOrderTotal = orderTotal.outerHTML;
     
     // assert

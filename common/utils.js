@@ -1,37 +1,40 @@
+
+
 export const makePrettyCurrency = (number) => {
+    console.log(number, 'number passed to makepretty');
     const makePrettyCurrency = number.toLocaleString('en-US', { style: 'currency', currency: 'USD' });
     return makePrettyCurrency; 
 };
 
 export const findById = (clothing, id) => {
-    for (let i = 0; i < clothing.length; i++) {
-        const clothingItem = clothing[i];
+    let matchingOrder;
+    
+    clothing.forEach(item => {
+        if (item.id === id) {
+            matchingOrder = item;
+        }
+    });
 
-        if (clothingItem.id === id) {
-            return clothingItem;
-        } 
-    }
+    return matchingOrder;
 };
 
 export const calcRowItem = (itemQuantity, itemPrice) => {
     const rowCost = Number((itemQuantity * itemPrice).toFixed(2));
     return rowCost; 
-
 };
 
-export const calcOrderTotal = (order, clothing) => {
-    let orderTotal = 0; 
-    
-    for (let i = 0; i < order.length; i++) {
-        const orderItem = order[i];
-        const garmentId = orderItem.id;
-        const garmentQuantity = orderItem.quantity; 
-        
-        const garment = findById(clothing, garmentId);
-
-        let costOfItemOrder = calcRowItem(garmentQuantity, garment.price);
-        orderTotal += costOfItemOrder; 
+export const calcOrderTotal = (cartArray, inventoryArray) => {
+    console.log(cartArray);
+    if (cartArray !== null) {
+        let orderTotal = 0; 
+        cartArray.forEach (orderItem => {
+            const garmentId = orderItem.id;
+            const garment = findById(inventoryArray, garmentId);
+            const garmentQuantity = orderItem.quantity; 
+            let costOfItemOrder = calcRowItem(garmentQuantity, garment.price);
+            orderTotal += costOfItemOrder; 
+        });
+        return orderTotal; 
     }
-    return orderTotal; 
 };
 

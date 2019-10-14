@@ -1,21 +1,22 @@
-import { makePrettyCurrency, calcRowItem } from '../common/utils.js';
+import { makePrettyCurrency } from '../common/utils.js';
+import { calcRowItem } from '../common/utils.js';
 
-const makeTd = (content) => { // content is a string
+const makeTd = (content) => { 
     const column = document.createElement('td');
     column.textContent = content;
 
-    return column;
+    return column; 
 };
 
-export default (rowItem, clothing) => {
+export default (orderItem, inventoryObject) => {
     const tableRow = document.createElement('tr');
 
-    const prettyPrice = makePrettyCurrency(clothing.price);
-    const totalRowPrice = calcRowItem(rowItem.quantity, clothing.price);
+    const prettyPrice = makePrettyCurrency(inventoryObject.price);
+    const totalRowPrice = calcRowItem(orderItem.quantity, inventoryObject.price);
     const prettyTotal = makePrettyCurrency(totalRowPrice);
 
-    const columnOne = makeTd(clothing.name);
-    const columnTwo = makeTd(rowItem.quantity);
+    const columnOne = makeTd(inventoryObject.name);
+    const columnTwo = makeTd(orderItem.quantity);
     const columnThree = makeTd(prettyPrice);
     const columnFour = makeTd(prettyTotal);
 

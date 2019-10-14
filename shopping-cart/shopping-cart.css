@@ -17,11 +17,22 @@ td, th {
 #total-text {
     text-align: right;
 }
-/* 
-#logo {
-    height: 100px;
-} */
 
 h1 {
     height: 100px;
+}
+
+button {
+    transition: color 200ms ease-in-out;
+    border-radius: 20px;
+    font-family: 'Courier New', Courier;
+}
+
+button:hover {
+    background: lightslategray;
+    color: white;
+}
+
+button:disabled {
+    color: white;
 }
