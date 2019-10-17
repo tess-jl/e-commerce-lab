@@ -1,5 +1,7 @@
 table {
     width: 600px;
+    margin-top: 200px; 
+    align-content: center; 
 }
 
 td, th {

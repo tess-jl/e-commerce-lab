@@ -11,7 +11,19 @@ html, body {
 
 nav {
     background: rgb(50, 99, 76);
+    position: fixed;
+    width: 100%; 
 }
+
+#wrap-nav {
+    display: flex; 
+    justify-content: center;
+    text-align: center;
+}
+
+/* #nav-bar {
+
+} */
 
 
 body {
