@@ -6,7 +6,7 @@ td, th {
     text-align: center;
     border: solid 1px lightslategray;
     font-family: 'Courier New', Courier;
-    color: darkslategray; 
+    color: rgb(50, 99, 76);
 }
 
 .order-total th {
@@ -34,5 +34,5 @@ button:hover {
 }
 
 button:disabled {
-    color: white;
+    color: rgb(254, 250, 235); 
 }
