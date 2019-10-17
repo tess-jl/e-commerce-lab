@@ -22,7 +22,7 @@ body {
     text-align: center;
 }
 
-a, h1, h2, h3 {
+a, h1, h2, h3, footer {
     font-family: 'Courier New', Courier, monospace;
     color: darkslategray; 
 }
@@ -34,11 +34,27 @@ a {
 }
 
 h1 {
-    font-family: 'Courier New', Courier;
-    font-weight: 900;
+    margin-top: 70px;
+    margin-bottom: 0px;
 }
 
 #logo {
-    height: 150px;
-    margin: 
+    height: 366px;
+    padding: none; 
+}
+
+#fibers1, #fibers2 {
+    margin-top: 70px;
+    height: 300px; 
+}
+
+
+section {
+    display:flex; 
+
+}
+
+footer {
+    margin-top: 100px;
+    margin-bottom: 100px; 
 }
