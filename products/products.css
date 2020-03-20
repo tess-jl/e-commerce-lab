@@ -29,7 +29,7 @@ ul {
 #clothing li {
     list-style: none;
     position: relative;
-    background: white;
+    background: rgb(254, 250, 235); 
     border: 1px solid lightslategray;
     border-radius: 5px;
     width: 25%;

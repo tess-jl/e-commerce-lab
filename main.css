@@ -3,35 +3,70 @@
     box-sizing: border-box;
 }
 
+html, body {
+    margin: 0; 
+    padding: 0;
+}
+
 
 nav {
-    background: transparent; 
+    background: rgb(50, 99, 76);
+    position: fixed;
+    width: 100%; 
 }
 
-a {
-    margin: 10px;
-    text-decoration-line: none;
+#wrap-nav {
+    display: flex; 
+    justify-content: center;
+    text-align: center;
 }
+
+/* #nav-bar {
+
+} */
+
 
 body {
-    background: floralwhite; 
+    background: rgb(254, 250, 235); 
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
 }
 
-a, h1, h2, h3 {
+a, h1, h2, h3, footer {
     font-family: 'Courier New', Courier, monospace;
     color: darkslategray; 
 }
 
+a {
+    margin: 10px;
+    text-decoration-line: none;
+    color: rgb(254, 250, 235); 
+}
+
 h1 {
-    font-family: 'Courier New', Courier;
-    font-weight: 900;
+    margin-top: 70px;
+    margin-bottom: 0px;
 }
 
 #logo {
-    height: 150px;
-    margin: 
+    height: 366px;
+    padding: none; 
+}
+
+#fibers1, #fibers2 {
+    margin-top: 70px;
+    height: 300px; 
+}
+
+
+section {
+    display:flex; 
+
+}
+
+footer {
+    margin-top: 100px;
+    margin-bottom: 50px; 
 }
